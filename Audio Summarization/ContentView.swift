@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var youtubeLink = ""
+    @State private var summaryText = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            TextField("Enter Youtube Link", text: $youtubeLink)
         }
+        .textFieldStyle(.roundedBorder)
         .padding()
+        
+        Button(action: {
+            summaryText = "Here's the summary of the audio"
+        }) {
+            Text("Transcribe Audio")
+        }
+        .buttonStyle(.bordered)
     }
 }
 
